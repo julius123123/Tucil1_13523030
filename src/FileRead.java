@@ -17,17 +17,16 @@ public class FileRead {
         
         String[] meta = line.split(" ");
         
-        int N = meta[0].charAt(0) - '0';
-        int M = meta[1].charAt(0) - '0';
-        int P = meta[2].charAt(0) - '0';
+        int N = Integer.parseInt(meta[0]);
+        int M = Integer.parseInt(meta[1]);
+        int P = Integer.parseInt(meta[2]);
         
         line = br.readLine();
         
         Board board = new Board(N, M, P, line);
 
         
-        char p = meta[2].charAt(0);
-        int num_piece = p - '0';
+        int num_piece = P;
         int index = 0;
 
         Piece[] l_piece = new Piece[num_piece];
