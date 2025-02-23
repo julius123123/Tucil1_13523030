@@ -5,9 +5,12 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class FileRead {
-    public FileRead(){}
+    public String f_name;
+    public FileRead(String file_name){
+        this.f_name = file_name;
+    }
     public Game read() throws Exception{
-        BufferedReader br = new BufferedReader(new FileReader("Tucil1_13523030\\tes\\game.txt"));
+        BufferedReader br = new BufferedReader(new FileReader(f_name));
     try {
         int max_length = 0;
         String line = br.readLine();

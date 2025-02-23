@@ -22,9 +22,14 @@ public class Board {
     }
 
     public void cetakBoard(){
+        String[] ansi = {"\u001B[0;30m", "\u001B[0;31m", "\u001B[0;32m", "\u001B[0;33m", "\u001B[0;34m", "\u001B[0;35m", "\u001B[0;36m", "\u001B[0;37m"};
+
+        int index = 0;
         for (int i = 0; i < N; i++){
             for (int j = 0; j < M; j++){
-                System.out.print(board[i][j]);
+                index = (board[i][j] - 'A') % 8;
+
+                System.out.print(ansi[index] + board[i][j] + "\u001B[0m");
             }
             System.err.println();
         }
