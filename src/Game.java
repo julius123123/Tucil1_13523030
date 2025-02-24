@@ -1,6 +1,5 @@
 package Tucil1_13523030.src;
 
-import java.util.concurrent.atomic.AtomicInteger;
 public class Game
 {
     public  Board board;
@@ -12,7 +11,7 @@ public class Game
         this.pieces = p;
     }
     
-    public boolean solve_game(int index){
+    public boolean solve_game(int index, Count c){
         if (index == board.puzzle_pieces && board.check()){
             board.cetakBoard();
             return true;
@@ -39,8 +38,9 @@ public class Game
                 for (int y = 0; y < board.N; y++){
                     // System.out.println(Main.count);
                     // Main.count.incrementAndGet();
+                    c.countIncr();
                     if (board.setPiece(pieces_rotate[k], x, y)){
-                        if (solve_game(index + 1)){
+                        if (solve_game(index + 1, c)){
                             return true;
                         }
                         board.removePiece(pieces_rotate[k], x, y);
